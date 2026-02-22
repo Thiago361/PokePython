@@ -21,7 +21,8 @@ Desenvolvido com foco em **Clean Code** e **Experiência do Usuário (UX)** no t
 * ⚔️ **Sistema de Turnos:** Lógica de batalha fiel aos clássicos, com escolha de movimentos e contra-ataque inimigo.
 * 📊 **Gestão de Atributos:** Controle de HP (Vida) e PP (Pontos de Poder) para cada golpe.
 * 🎭 **Animações Fluídas:** Efeito de digitação ASCII e barras de vida que descem animadamente durante o dano.
-* 🐉 **Pokédex Variada:** Escolha entre clássicos como Charizard e Squirtle, ou o exclusivo Tapoman.
+* 🐉 **Pokédex Variada:** Escolha entre clássicos como Charizard e Squirtle, ou o exclusivo Tapoman (Você pode adicionar ou remover Pokémons alterando diretamente o dicionário no arquivo "InfosPokemons".
+O projeto foi desenvolvido com foco em escalabilidade, permitindo que você adicione novos Pokémon, modifique atributos como vida e dano, crie novos ataques e personalize totalmente a experiência. Sinta-se livre para testar, ajustar e expandir o jogo do seu jeito!).
 * 🤖 **IA de Batalha:** Inimigos atacam de forma aleatória com frases dinâmicas para maior imersão.
 * 🔁 **Game Loop:** Opção de reiniciar a partida ou trocar de Pokémon após a vitória ou derrota.
 
