@@ -9,15 +9,10 @@ from animation import animated_ascii_typing
 from battle_screens import telaDerrota, telaVitoria
 from battle_texts import frases_aproximacao, frases_surgimento
 from battle_logic import atacarPokemon, foiAtacadoPokemon, verificarMorte
+from utils import timeCls
 
 def pokeEscolhido(escolha):
     return pokemons.get(escolha)
-
-def timeCls(timer, clear):
-    time.sleep(timer)
-    if clear == 'cls':
-        os.system('cls')
-    pass
     
 def lutaPokePythonLoop(PokemonEscolhido, inimigoEscolhido):
     while True:
