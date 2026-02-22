@@ -3,10 +3,12 @@ import os
 import random
 import msvcrt
 import copy
-from infos_pokemons import pokemons, inimigos, frases_ataque, telaDerrota, telaVitoria
-from animation import animated_ascii_typing, animar_barra_vida
-from battle_screens import mostrarVidaAtual, telaDerrota, telaVitoria
-from battle_texts import frases_aproximacao, frases_surgimento, frases_ataque
+
+from infos_pokemons import pokemons, inimigos
+from animation import animated_ascii_typing
+from battle_screens import telaDerrota, telaVitoria
+from battle_texts import frases_aproximacao, frases_surgimento
+from battle_logic import atacarPokemon, foiAtacadoPokemon, verificarMorte
 
 def pokeEscolhido(escolha):
     return pokemons.get(escolha)
@@ -51,45 +53,6 @@ def lutaPokePythonLoop(PokemonEscolhido, inimigoEscolhido):
         else:
             timeCls(0, 'cls')
             print('escolhe novamente marreco, esse ataque não existe...')
-    
-
-def atacarPokemon(ChooseMove,PokemonEscolhido, inimigoEscolhido):
-    vidaAtual = inimigoEscolhido['vida']
-    ataqueUsado = PokemonEscolhido["ataques"][ChooseMove]["dano"]
-    PpdoAtkUsado = PokemonEscolhido["ataques"][ChooseMove]["pp"]
-    vidaAtual -= ataqueUsado
-    inimigoEscolhido['vida'] = vidaAtual
-    animar_barra_vida(inimigoEscolhido, PokemonEscolhido["ataques"][ChooseMove]["dano"])
-    timeCls(0, 'cls')
-    print(f'\nvocê atacou o {inimigoEscolhido["nome"]} com {PokemonEscolhido["ataques"][ChooseMove]["nome"]} e causou {ataqueUsado} de dano\n')
-    mostrarVidaAtual(PokemonEscolhido, inimigoEscolhido)
-    PpdoAtkUsado -= 1
-    PokemonEscolhido["ataques"][ChooseMove]["pp"] = PpdoAtkUsado
-    print("\nPressione qualquer tecla para continuar...")
-    msvcrt.getch()
-    
-def foiAtacadoPokemon(PokemonEscolhido, inimigoEscolhido):
-    timeCls(0, 'cls')
-    fraseAtkInimiga = random.choice(frases_ataque)
-    print(f'{fraseAtkInimiga}\n')
-    timeCls(1,'n')
-    ChooseMoveInimigo = str(random.randint(1,4))
-    vidaAtual = PokemonEscolhido['vida']
-    ataqueUsado = inimigoEscolhido["ataques"][ChooseMoveInimigo]["dano"]
-    vidaAtual -= ataqueUsado
-    PokemonEscolhido['vida'] = vidaAtual
-    animar_barra_vida(PokemonEscolhido, inimigoEscolhido["ataques"][ChooseMoveInimigo]["dano"])
-    timeCls(0, 'cls')
-    print(f'{PokemonEscolhido["nome"]} foi atacado com {inimigoEscolhido["ataques"][ChooseMoveInimigo]["nome"]} e causou {ataqueUsado} de dano\n')
-    mostrarVidaAtual(PokemonEscolhido, inimigoEscolhido)
-    
-def verificarMorte(PokemonEscolhido,inimigoEscolhido): 
-    if PokemonEscolhido["vida"] <= 0:
-        PokemonEscolhido["vida"] = 0
-        return "jogador_morto" 
-    elif inimigoEscolhido["vida"] <= 0:
-        inimigoEscolhido["vida"] = 0
-        return "inimigo_morto"
     
     
 def iniciar_jogo():
