@@ -3,8 +3,10 @@ import os
 import random
 import msvcrt
 import copy
-from infosPokemons import pokemons, inimigos, frases_ataque, telaDerrota, telaVitoria
+from infos_pokemons import pokemons, inimigos, frases_ataque, telaDerrota, telaVitoria
 from animation import animated_ascii_typing, animar_barra_vida
+from battle_screens import mostrarVidaAtual, telaDerrota, telaVitoria
+from battle_texts import frases_aproximacao, frases_surgimento, frases_ataque
 
 def pokeEscolhido(escolha):
     return pokemons.get(escolha)
@@ -14,17 +16,6 @@ def timeCls(timer, clear):
     if clear == 'cls':
         os.system('cls')
     pass
-       
-def mostrarVidaAtual( PokemonEscolhido, inimigoEscolhido):
-    print(f' {PokemonEscolhido["nome"]}')
-    if PokemonEscolhido["vida"] <= 0:
-        PokemonEscolhido["vida"] = 0
-    print(f'❤️ {PokemonEscolhido["vida"]} de vida')
-    print('-' * 15)
-    if inimigoEscolhido["vida"] <= 0: 
-        inimigoEscolhido["vida"] = 0
-    print(f' {inimigoEscolhido["nome"]}')
-    print(f'❤️ {inimigoEscolhido["vida"]} de vida')
     
 def lutaPokePythonLoop(PokemonEscolhido, inimigoEscolhido):
     while True:
@@ -152,13 +143,13 @@ def iniciar_jogo():
     inimigoAleatorio = random.choice(list(inimigos.values()))
     inimigoEscolhido = copy.deepcopy(inimigoAleatorio)
     
-    print("\n🌪 Algo se aproxima...")
+    print(f"\n🌪{random.choice(frases_aproximacao)}")
     timeCls(1, 'n')
     print("...")
     timeCls(1, 'n')
     print("...")
     timeCls(1, 'cls')
-    print(f"💥 {inimigoEscolhido['nome']} surgiu diante de você!")
+    print(f"💥 {inimigoEscolhido['nome']} {random.choice(frases_surgimento)}")
     print(f"❤️  Vida: {inimigoEscolhido['vida']}")
     print("Prepare-se para lutar! ⚔️\n")
     
@@ -205,13 +196,13 @@ def jogarNovamente():
     inimigoAleatorio = random.choice(list(inimigos.values()))
     inimigoEscolhido = copy.deepcopy(inimigoAleatorio)
     
-    print("\n🌪 Algo se aproxima...")
+    print(f"\n🌪{random.choice(frases_aproximacao)}")
     timeCls(1, 'n')
     print("...")
     timeCls(1, 'n')
     print("...")
     timeCls(1, 'cls')
-    print(f"💥 {inimigoEscolhido['nome']} surgiu diante de você!")
+    print(f"💥 {inimigoEscolhido['nome']} {random.choice(frases_surgimento)}")
     print(f"❤️  Vida: {inimigoEscolhido['vida']}")
     print("Prepare-se para lutar! ⚔️\n")
     
