@@ -11,8 +11,8 @@ def atacarPokemon(ChooseMove,PokemonEscolhido, inimigoEscolhido):
     ataqueUsado = PokemonEscolhido["ataques"][ChooseMove]["dano"]
     PpdoAtkUsado = PokemonEscolhido["ataques"][ChooseMove]["pp"]
     vidaAtual -= ataqueUsado
-    inimigoEscolhido['vida'] = vidaAtual
     animar_barra_vida(inimigoEscolhido, PokemonEscolhido["ataques"][ChooseMove]["dano"])
+    inimigoEscolhido['vida'] = vidaAtual
     timeCls(0, 'cls')
     print(f'\nvocê atacou o {inimigoEscolhido["nome"]} com {PokemonEscolhido["ataques"][ChooseMove]["nome"]} e causou {ataqueUsado} de dano\n')
     mostrarVidaAtual(PokemonEscolhido, inimigoEscolhido)
@@ -29,9 +29,9 @@ def foiAtacadoPokemon(PokemonEscolhido, inimigoEscolhido):
     ChooseMoveInimigo = str(random.randint(1,4))
     vidaAtual = PokemonEscolhido['vida']
     ataqueUsado = inimigoEscolhido["ataques"][ChooseMoveInimigo]["dano"]
+    animar_barra_vida(PokemonEscolhido, inimigoEscolhido["ataques"][ChooseMoveInimigo]["dano"])
     vidaAtual -= ataqueUsado
     PokemonEscolhido['vida'] = vidaAtual
-    animar_barra_vida(PokemonEscolhido, inimigoEscolhido["ataques"][ChooseMoveInimigo]["dano"])
     timeCls(0, 'cls')
     print(f'{PokemonEscolhido["nome"]} foi atacado com {inimigoEscolhido["ataques"][ChooseMoveInimigo]["nome"]} e causou {ataqueUsado} de dano\n')
     mostrarVidaAtual(PokemonEscolhido, inimigoEscolhido)

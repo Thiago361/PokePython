@@ -101,7 +101,7 @@ def iniciar_jogo():
     inimigoAleatorio = random.choice(list(inimigos.values()))
     inimigoEscolhido = copy.deepcopy(inimigoAleatorio)
     
-    print(f"\n🌪{random.choice(frases_aproximacao)}")
+    print(f"\n🌪 {random.choice(frases_aproximacao)}")
     timeCls(1, 'n')
     print("...")
     timeCls(1, 'n')
